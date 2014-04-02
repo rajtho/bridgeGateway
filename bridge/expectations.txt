@@ -1,0 +1,11 @@
+
+
+The bridge basically acts like a reverse proxy for the client, transferring the payload as-it-is. The bridge though interprets the service/command frame of the client to interpret into the excact connection protocol and the server address. 
+
+So , essentially the client sends <ws><command><payload></ws>
+
+<ws> is the websocket layer framing
+<command> : <serviceType:userIdentifier:zeromqCommand>
+zeroMqCommand: SUB:*<comma-separated-topics>
+serviceType: mkdtData|trd|social|analytics|user
+<payload>: the payload that will be directly transfered to the zeromq socket
